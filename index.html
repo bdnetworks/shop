@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>স্মার্ট শপ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">🛍️ স্মার্ট শপ</div>
+  <div class="menu">
+    <a href="#">হোম</a>
+    <a href="#">যোগাযোগ</a>
+    <a href="#">আমাদের সম্পর্কে</a>
+    <div class="cart-btn" onclick="openCheckout()">
+      <i class="fas fa-shopping-cart"></i> কার্ট
+      <div class="cart-count" id="cartCount">0</div>
+    </div>
+  </div>
+</header>
+
+<section class="products" id="productList"></section>
+
+<div id="overlay"></div>
+<div id="checkoutModal">
+  <h3>অর্ডার চেকআউট</h3>
+  <input type="text" id="name" placeholder="নাম লিখুন" required />
+  <input type="text" id="phone" placeholder="মোবাইল নম্বর" required />
+  <textarea id="address" placeholder="ঠিকানা" rows="3" required></textarea>
+  <textarea id="orderDetails" readonly rows="4"></textarea>
+  <button onclick="submitOrder()">অর্ডার করুন</button>
+  <button id="closeCheckout" onclick="closeCheckout()">বন্ধ করুন</button>
+</div>
+
+<script>
+// পণ্যের ডেটা লোড করা হবে products.json থেকে
+fetch('products.json')
+  .then(res => res.json())
+  .then(products => {
+    const productList = document.getElementById("productList");
+    products.forEach((p) => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.name}"/>
+        <div class="product-body">
+          <h4>${p.name}</h4>
+          <p>৳${p.price}</p>
+          <button onclick="addToCart(${p.id})">🛒 Add to Cart</button>
+          <a href="#">🔗 ডেমো লিংক</a>
+        </div>`;
+      productList.appendChild(div);
+    });
+
+    window.products = products;
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

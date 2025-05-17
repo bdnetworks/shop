@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "টি-শার্ট", "price": 299, "image": "https://i.ibb.co/Yp2p1vJ/shirt.jpg" },
+  { "id": 2, "name": "জুতা", "price": 899, "image": "https://i.ibb.co/M7xYQ2P/shoe.jpg" },
+  { "id": 3, "name": "ঘড়ি", "price": 499, "image": "https://i.ibb.co/mtYZJkD/watch.jpg" },
+  { "id": 4, "name": "সানগ্লাস", "price": 199, "image": "https://i.ibb.co/jVHpc5r/glass.jpg" },
+  { "id": 5, "name": "হুডি", "price": 599, "image": "https://i.ibb.co/7Rs9Dbk/hoodie.jpg" },
+  { "id": 6, "name": "ব্যাগ", "price": 349, "image": "https://i.ibb.co/x3zXbcX/bag.jpg" }
+]
